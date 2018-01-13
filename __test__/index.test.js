@@ -5,17 +5,20 @@ describe('validate', () => {
     beforeEach(() => {
         rng = new RomanNumeralGenerator();
     });
+    test('it does not validate with no number provided', () => {
+        expect(rng.generate().valid).toEqual(false);
+    });
     test('it validates with a valid number', () => {
         expect(rng._validate('123').valid).toEqual(true);
     });
     test('it fails validation with an invalid number', () => {
-        expect(rng._validate('123abc').valid).toEqual(false);
+        expect(rng.generate('123abc').valid).toEqual(false);
     });
     test('it fails validation with a number too big', () => {
-        expect(rng._validate('10000000').valid).toEqual(false);
+        expect(rng.generate('10000000').valid).toEqual(false);
     });
     test('it fails validation with a negative number', () => {
-        expect(rng._validate('-10000000').valid).toEqual(false);
+        expect(rng.generate('-10000000').valid).toEqual(false);
     });
     test('it force breaks', () => {
         let response = rng._process('1000000000000000');
