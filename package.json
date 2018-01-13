@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "generate": "node index.js"
+    "test": "jest"
   },
   "author": "markkelsall",
   "repository": {
